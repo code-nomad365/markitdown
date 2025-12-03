@@ -154,6 +154,49 @@ result = md.convert("test.xlsx")
 print(result.text_content)
 ```
 
+#### Excel Conversion Example
+
+MarkItDown converts Excel spreadsheets to Markdown tables, preserving the structure of your data. Here's a detailed example:
+
+**Command-Line:**
+```bash
+# Convert an Excel file with multiple sheets
+markitdown sales_report.xlsx -o sales_report.md
+```
+
+**Python API:**
+```python
+from markitdown import MarkItDown
+
+# Convert Excel file
+md = MarkItDown()
+result = md.convert("sales_report.xlsx")
+print(result.text_content)
+```
+
+**Example Excel file structure:**
+- Sheet 1: "Q1 Sales" with product sales data
+- Sheet 2: "Summary" with totals
+
+**Resulting Markdown output:**
+```markdown
+# Sheet: Q1 Sales
+
+| Product | Units Sold | Revenue |
+|---------|------------|---------|
+| Widget A | 150 | $1,500 |
+| Widget B | 200 | $3,000 |
+| Widget C | 75 | $1,125 |
+
+# Sheet: Summary
+
+| Quarter | Total Units | Total Revenue |
+|---------|-------------|---------------|
+| Q1 | 425 | $5,625 |
+```
+
+Each worksheet in the Excel file is converted to a separate section with its own heading, and tables are preserved as Markdown tables with proper alignment.
+
 Document Intelligence conversion in Python:
 
 ```python
